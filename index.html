@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Uber Eats clone</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @media screen and (max-width: 412px) {
+        body,
+        html {
+          width: 100vw;
+        }
+        header {
+          height: 150vh;
+        }
+        nav {
+          height: 100px;
+          padding: 0px 20px;
+        }
+        nav i {
+          font-size: 26px;
+          padding-right: 18px;
+        }
+        nav div {
+          font-size: 28px;
+        }
+        nav button {
+          width: auto;
+          height: 48px;
+          padding: 0px;
+        }
+        nav button i {
+          font-size: 22px;
+          padding: 6px 16px;
+        }
+        nav button:nth-child(3) {
+          display: none;
+        }
+        nav button:nth-child(4) {
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 1.2vh #bcbcbc;
+        }
+        nav button:nth-child(5) {
+          margin-left: 10px;
+          font-size: 16px;
+          padding: 0px 14px;
+        }
+        .header-box {
+          height: calc(120vh - 100px);
+          padding: 20px;
+        }
+        .header-box h1 {
+          display: none;
+        }
+        .header-box h1:nth-child(2) {
+          padding: 16px 0px;
+          display: initial;
+          font-size: 36px;
+        }
+        .address {
+          padding: 0;
+          width: 100%;
+          height: 200px;
+          flex-direction: column;
+          margin: 40px 0px 24px 0px;
+          gap: 8px;
+        }
+        .input-address {
+          width: 100%;
+          height: 30%;
+        }
+        .input-address i {
+          padding: 20px 16px;
+          font-size: 24px;
+        }
+        .input-address input {
+          height: 100%;
+          width: 100%;
+          border: none;
+          font-size: 18px;
+          font-weight: 300;
+        }
+        .deliver-time {
+          width: 100%;
+          height: 30%;
+          font-size: 18px;
+        }
+        .deliver-time i {
+          padding: 20px 16px;
+          font-size: 28px;
+          font-weight: 600;
+        }
+        .deliver-time i:nth-child(3) {
+          margin-left: auto;
+        }
+        .header-box button {
+          display: none;
+        }
+        .header-box button:nth-child(4) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 30%;
+          font-size: 18px;
+          border-radius: 10px;
+          margin-top: auto;
+        }
+        .header-box p {
+          display: none;
+        }
+        .header-box p:nth-child(5) {
+          font-size: 16px;
+          display: initial;
+        }
+        /* MOBILE APP DOWNLOAD */
+        .mobile-app {
+          height: 200px;
+          width: 100%;
+          padding: 20px 20px 40px 20px;
+          display: flex;
+          flex-direction: column;
+          background: yellow;
+        }
+        .mobile-app-name {
+          display: flex;
+          align-items: center;
+          padding: 20px 0px;
+        }
+        .app-logo {
+          height: 70px;
+          width: 70px;
+          font-size: 20px;
+          font-weight: 600;
+          color: #fff;
+          background: #111;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid black;
+          border-radius: 10px;
+        }
+        .app-logo span {
+          color: green;
+        }
+        .mobile-app-name h3 {
+          width: 85%;
+          padding: 0px 20px;
+          font-size: 22px;
+        }
+        .mobile-app button {
+          padding: 16px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+          background: #eee;
+          border: none;
+          border-radius: 6px;
+        }
+        /* BUSSINESS SECTION */
+        .bussiness {
+          margin-top: 10px;
+          padding: 7vh 20px 0px 20px;
+          height: 140vh;
+          flex-direction: column;
+        }
+        .bussiness-box {
+          height: 33%;
+          width: 100%;
+        }
+        .bussiness-box img {
+          height: 65%;
+        }
+        .bussiness-box h2 {
+          margin-top: 1.5vh;
+          font-size: 24px;
+        }
+        .bussiness-box a {
+          line-height: 6vh;
+          font-size: 16px;
+        }
+        /* LOCATION SECTION */
+        .nearlocations {
+          height: 120vh;
+          padding: 0vh 20px;
+        }
+        .locationhead {
+          height: 7vh;
+        }
+        .locationhead h1 {
+          font-size: 24px;
+        }
+        .locationhead a {
+          display: none;
+        }
+        .map {
+          height: 60vh;
+          background: black;
+        }
+        .location {
+          margin-top: 30px;
+          padding: 0px 50px 0px 0px;
+          height: 36vh;
+          justify-content: space-between;
+        }
+        .location ul {
+          display: flex;
+          justify-content: space-between;
+        }
+        .location ul:nth-child(2),
+        .location ul:nth-child(3) {
+          display: none;
+        }
+        .location ul li {
+          width: auto;
+          font-size: 16px;
+        }
+        .locationfoot {
+          height: 10vh;
+          display: flex;
+          align-items: center;
+        }
+
+        .locationfoot a {
+          color: #000;
+        }
+        /* COUNTRY */
+        .country {
+          height: 70vh;
+          width: 100%;
+          padding: 0 20px;
+        }
+        .countryhead {
+          height: 8vh;
+          align-items: center;
+        }
+        .countryhead h1 {
+          font-size: 24px;
+        }
+        .countryhead a {
+          display: none;
+        }
+        .countryName {
+          padding-right: 60px;
+          margin-top: 16px;
+          height: 50vh;
+          justify-content: space-between;
+        }
+        .countryName ul {
+          gap: 28px;
+        }
+        .countryName ul:nth-child(4),
+        .countryName ul:nth-child(3) {
+          display: none;
+        }
+        .country ul li {
+          width: 100px;
+        }
+        footer {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <i class="ri-menu-line"></i>
+        <div>Uber <span>Eats</span></div>
+        <button><i class="ri-user-3-fill"></i><span>Log in</span></button>
+        <button><i class="ri-user-3-fill"></i><span></span></button>
+        <button>Sign up</button>
+      </nav>
+
+      <div class="header-box">
+        <h1>Order food to your door</h1>
+        <h1>Get what you're craving</h1>
+        <div class="address">
+          <div class="input-address">
+            <i class="ri-map-pin-2-fill"></i>
+            <input type="text" placeholder="Enter delivery address" />
+          </div>
+
+          <div class="deliver-time">
+            <i class="ri-timer-2-fill"></i>
+            <span>Deliver now</span>
+            <i class="ri-arrow-drop-down-line"></i>
+          </div>
+
+          <button>Find Food</button>
+          <button>Explore nearby</button>
+        </div>
+        <p><a href="">Sign in</a> for your recent addresses</p>
+        <p>Or <a href="">Sign in</a> to your account</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="mobile-app">
+        <div class="mobile-app-name">
+          <div class="app-logo">Uber <span>Eats</span></div>
+          <h3>There's more to love in the Android app.</h3>
+        </div>
+        <button>
+          <box-icon type="logo" name="android" size="20px"></box-icon>
+          Get the app
+        </button>
+      </div>
+
+      <section class="bussiness">
+        <div class="bussiness-box">
+          <img src="/Images/01.webp" alt="" />
+          <h2>Feed your employees</h2>
+          <a href="">Create a bussiness account</a>
+        </div>
+        <div class="bussiness-box">
+          <img src="/Images/02.webp" alt="" />
+          <h2>Your restaurant, delivered</h2>
+          <a href="">Add your restaurant</a>
+        </div>
+        <div class="bussiness-box">
+          <img src="/Images/03.webp" alt="" />
+          <h2>Deliver with Uber Eats</h2>
+          <a href="">Sign up to deliver</a>
+        </div>
+      </section>
+
+      <section class="nearlocations">
+        <div class="locationhead">
+          <h1>Cities near me</h1>
+          <a href="">View all 500+ cities</a>
+        </div>
+
+        <div class="map">a</div>
+
+        <div class="location">
+          <ul>
+            <li>Akron</li>
+            <li>Albuquerque</li>
+            <li>Bridgeport</li>
+            <li>Concord</li>
+            <li>Dayton</li>
+            <li>El Paso</li>
+          </ul>
+          <ul>
+            <li>Hartford</li>
+            <li>Houston</li>
+            <li>Indianapolis</li>
+            <li>McAllen</li>
+            <li>Mesa</li>
+            <li>Milwaukee</li>
+          </ul>
+          <ul>
+            <li>Nashville</li>
+            <li>New Orleans</li>
+            <li>Oklahoma City</li>
+            <li>Omaha</li>
+            <li>Orlando</li>
+            <li>Palm Bay</li>
+          </ul>
+          <ul>
+            <li>Providence</li>
+            <li>Queens</li>
+            <li>San Antonio</li>
+            <li>Stony Brook</li>
+            <li>Tucson</li>
+            <li>West Hollywood</li>
+          </ul>
+        </div>
+
+        <div class="locationfoot">
+          <a href="">View all 500+ cities</a>
+        </div>
+      </section>
+
+      <section class="country">
+        <div class="countryhead">
+          <h1>Countries with Uber Eats</h1>
+          <a href="">View all countries</a>
+        </div>
+
+        <div class="countryName">
+          <ul>
+            <li>Australia</li>
+            <li>Belgium</li>
+            <li>Canada</li>
+            <li>Chile</li>
+            <li>Costa Rica</li>
+            <li>Dominican Republic</li>
+            <li>Ecuador</li>
+            <li>El Salvador</li>
+          </ul>
+          <ul>
+            <li>France</li>
+            <li>Germany</li>
+            <li>Guatemala</li>
+            <li>Ireland</li>
+            <li>Italy</li>
+            <li>Japan</li>
+            <li>Kenya</li>
+            <li>Mexico</li>
+          </ul>
+          <ul>
+            <li>Netherlands</li>
+            <li>New Zealand</li>
+            <li>Panama</li>
+            <li>Poland</li>
+            <li>Portugal</li>
+            <li>South Africa</li>
+            <li>Spain</li>
+            <li>Sri Lanka</li>
+          </ul>
+          <ul>
+            <li>Sweden</li>
+            <li>Switzerland</li>
+            <li>Taiwan (ROC)</li>
+            <li>United Kingdom</li>
+            <li>United States</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="part-1">
+        <div class="part-1-left">
+          <div class="foot-logo">Uber <span>Eats</span></div>
+          <div class="downloading-store">
+            <button>
+              <img src="Images/apple.png" alt="" />
+              <div class="btn-content">
+                Download on the <span>App Store</span>
+              </div>
+            </button>
+            <button>
+              <img src="Images/googleplay.png" alt="" />
+              <div class="btn-content">GET IT ON <span>Google Play</span></div>
+            </button>
+          </div>
+        </div>
+
+        <div class="part-1-right">
+          <ul>
+            <a href="">Get Help</a>
+            <a href="">Buy gift cards</a>
+            <a href="">Add yout restaurant</a>
+            <a href="">Sign up to deliver</a>
+            <a href="">Create a bussiness account</a>
+            <a href="">Promotions</a>
+          </ul>
+          <ul>
+            <a href="">Restaurant near me</a>
+            <a href="">View all cities</a>
+            <a href="">View all countries</a>
+            <a href="">Pickup near me</a>
+            <a href="">About Uber Eats</a>
+            <a href=""><i class="ri-translate-2"></i> English</a>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="part-2">
+        <div class="line-1">
+          <i class="ri-facebook-box-fill"></i>
+          <i class="ri-twitter-fill"></i>
+          <i class="ri-instagram-line"></i>
+          <p>
+            <a href="">Privacy Policy</a>
+            <a href="">Terms</a>
+            <a href="">Pricing</a>
+            <a href="">Do not sell or share my personal information</a>
+          </p>
+        </div>
+        <div class="line-2">
+          <p>
+            This site is protected by reCAPTCHA and the Google Privacy Policy
+            and Terms of Service apply.
+          </p>
+          <p>&copy; 2023 Uber Technologies Inc.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/boxicons@2.1.3/dist/boxicons.js"></script>
+  </body>
+</html>
